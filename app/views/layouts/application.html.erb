@@ -11,8 +11,12 @@
 	<body>
 		<%= render 'layouts/header' %>
 		<div class="container">
+			<% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div> <!-- according to tutorial, this line is an "ugly" html/ERb combination and should be fixed (chapter 7 exercises) -->
+      <% end %>
 			<%= yield %>
 			<%= render 'layouts/footer' %>
+			<%= debug(params) if Rails.env.development? %>
 		</div>
 	</body>
 </html>
