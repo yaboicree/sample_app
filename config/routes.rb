@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   resources :users
+  resources :microposts, only: [:create, :destroy]
 
   #help_path -> '/help'
   #help_url -> 'http://www.example.com/help'
